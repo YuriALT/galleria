@@ -1,20 +1,20 @@
 function checkStatus(numberOfPictures) {
-    const stockStatus = '';
+    let stockStatus = '';
     if (numberOfPictures <= 0 || typeof (numberOfPictures) === 'string') {
         stockStatus = 'Not Avalible';
     }
     return stockStatus;
-}
-
+} 
+  
 
 class picture {
 
-    constructor(picturePrice, pictureName, artistName, pictureImage, pictureQuantity) {
+    constructor(picturePrice, pictureName, artistName, pictureImage,pictureQuantity) {
         this.price = picturePrice;
         this.pName = pictureName;
         this.aName = artistName;
         this.image = pictureImage;
-        this.status = pictureQuantity;
+        this.status = pictureQuantity; 
     }
 
     getPrice() {
@@ -34,10 +34,10 @@ class picture {
         return `${IMG_PATH}${this.image}`;
     }
 
-    getStatus() {
+     getStatus() {
         const picStatus = checkStatus(this.status);
         return `${picStatus}`;
-    }
+    } 
 
 }
 
@@ -73,6 +73,5 @@ const pictures = [
     ),
 ];
 
-export {
-    pictures
-}
+export {pictures};
+    

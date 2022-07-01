@@ -6,8 +6,8 @@ function searchPicture() {
     const searchField = document.getElementById('search-field');
     const searchTerm = searchField.value.trim();
 
-    const searchResult = pictures.filter(prod => {
-        return prod.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const searchResult = pictures.filter(pic => {
+        return pic.name.toLowerCase().includes(searchTerm.toLowerCase());
     });
 
     displayPictures(searchResult);
@@ -18,9 +18,8 @@ searchButton.addEventListener('click', searchPicture);
 
 
 
-// take products data and add it into the html of each card
+// take pictures data and add it into the html of each card
 function displayPictures(pictureData) {
-    // const IMG_PATH = 'https://cdn.pixabay.com/photo/'; // configuration of the project
     const container = document.getElementById('pictures-container');
     let html = '';
 
@@ -35,11 +34,11 @@ function displayPictures(pictureData) {
                       ${pic. getArtistName()}</p>
                   <p class="card-text">
                       ${pic.getPrice()}</p>
-                  <p class="card-text">
+                  <p class="card-text text-danger">
                       ${pic.getStatus()}</p> 
               </div>
           </div>`;
-    });
+    })
 
     container.innerHTML = html;
 
