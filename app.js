@@ -7,10 +7,19 @@ function searchPicture() {
     const searchTerm = searchField.value.trim();
 
     const searchResult = pictures.filter(pic => {
-        return pic.name.toLowerCase().includes(searchTerm.toLowerCase());
-    });
+        return pic.pName
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase())
+});
+
+    const searchResultArtist = pictures.filter(pic => {
+        return pic.aName
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase())
+});
 
     displayPictures(searchResult);
+    displayPictures(searchResultArtist);
 }
 
 const searchButton = document.getElementById('search-btn');
