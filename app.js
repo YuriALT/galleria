@@ -6,20 +6,15 @@ function searchPicture() {
     const searchField = document.getElementById('search-field');
     const searchTerm = searchField.value.trim();
 
-    const searchResult = pictures.filter(pic => {
-        return pic.pName
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase())
-});
+    // Search by artist and picture name 
 
-    const searchResultArtist = pictures.filter(pic => {
-        return pic.aName
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase())
-});
+    const searchResult = pictures.filter(pic => {
+        const comboSearch = pic.aName.toLowerCase() + pic.pName.toLowerCase();
+        return comboSearch.includes(searchTerm.toLowerCase());
+    });
 
     displayPictures(searchResult);
-    displayPictures(searchResultArtist);
+
 }
 
 const searchButton = document.getElementById('search-btn');
@@ -27,7 +22,7 @@ searchButton.addEventListener('click', searchPicture);
 
 
 
-// take pictures data and add it into the html of each card
+// Take pictures data and add it into the html of each card
 function displayPictures(pictureData) {
     const container = document.getElementById('pictures-container');
     let html = '';

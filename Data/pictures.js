@@ -38,6 +38,7 @@ class picture {
         const picStatus = checkStatus(this.status);
         return `${picStatus}`;
     } 
+    
 
 }
 
